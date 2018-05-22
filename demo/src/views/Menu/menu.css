@@ -1,0 +1,50 @@
+.menu {
+  display: flex;
+}
+
+.menu-categories {
+  padding: 30px;
+}
+
+.menu-category {
+  margin-bottom: 30px;
+  border: 1px solid #333;
+  border-radius: 10px;
+  padding: 10px;
+}
+
+.menu-items {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 10px;
+  grid-auto-rows: minmax(100px, auto);
+}
+
+.menu-item {
+  border: 1px solid #333;
+  padding: 10px;
+}
+
+
+.menu-item:hover {
+  border: 1px solid red;
+}
+
+.menu-item--selected {
+  border-color: blue;
+  background-color: rgba(0, 0, 255, .1);
+}
+
+.menu-item h4 {
+  margin: 0;
+  float: left;
+}
+
+.menu-item__price {
+  float: right;
+}
+
+.menu-item__description {
+  clear: both;
+  padding-top: 10px;
+}

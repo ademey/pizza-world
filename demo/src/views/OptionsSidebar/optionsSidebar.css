@@ -1,0 +1,33 @@
+.options-sidebar {
+  padding: 20px;
+  background: rgba(0, 0, 0, 0.1);
+  min-width: 300px;
+}
+
+.options-item__price {
+  float: right;
+}
+
+.options-sidebar__subtotal {
+  margin-top: 20px;
+}
+
+.options-sidebar__total {
+  margin-top: 10px;
+  padding-top: 10px;
+  border-top: 1px solid #333;
+}
+
+.options-checklist {
+  margin: 0;
+  padding: 0;
+}
+
+.options-checklist li {
+  list-style: none;
+  margin: 5px 0;
+}
+
+.options-checklist input {
+  margin-right: 5px;
+}
