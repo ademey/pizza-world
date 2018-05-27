@@ -165,7 +165,11 @@ Start with state of the header
   },
   menu: {
     selectedOptions: { 10591376: true, 8723470: false },
-    items: [ { name: 'Hawaiian', type: 'pizza', ... }, ...],
+    items: [
+      { name: 'Hawaiian', type: 'pizza', ... },
+      { name: 'Greek Salad', type: 'salad', ... },
+      ...
+    ],
     options: [ { name: 'Anchovies', id: 10591372 }, ...],
   }
 }
@@ -173,6 +177,37 @@ Start with state of the header
 Note:
 Notice items array. There are not separate ones for Pizza and Salad
 Show UI again
+
+
+
+## Demo
+### Logger
+Note:
+I want to demonstrate how proper memoization will reduce unneeded computations and renders
+Start with getFocusedMenuItem
+
+
+
+### Expensive container
+```html
+<MenuCategoryContainer title="Pizza" category="pizza" />
+<MenuCategoryExpensive title="Salads" category="salad" />
+```
+```js
+// Simplified examples. See `store/menu/selectors.js`
+const getMenuItemsByCategory = createSelector(
+  getMenuItems,
+  getProps,
+  (items, type) => {
+    return items.filter(item => item.type === type)
+  }
+);
+
+const expensive__getGetMenuItemsByCategory = (state, type) => {
+  const items = getMenuItems(state);
+  return items.filter(item => item.type === type)
+}
+```
 
 
 
@@ -208,51 +243,34 @@ Each component must create a unique instance.
 
 
 
-## Demo
-### Logger
-Note:
-I want to demonstrate how proper memoization will reduce unneeded computations and renders
-Start with getFocusedMenuItem
 
-
-
-### Expensive container
-```html
-<MenuCategoryContainer title="Pizza" category="pizza" />
-<MenuCategoryExpensive title="Salads" category="salad" />
-```
+### Advanced Memoization
 ```js
-// Simplified examples. See `store/menu/selectors.js`
-const getMenuItemsByCategory = createSelector(
-  getMenuItems,
-  getProps,
-  (items, type) => {
-    return items.filter(item => item.type === type)
-  }
-);
+import { createSelector, createSelectorCreator } from 'reselect';
+import memoize from 'lodash.memoize'
 
-const expensive__getGetMenuItemsByCategory = (state, type) => {
-  const items = getMenuItems(state);
-  return items.filter(item => item.type === type)
+const hashFn = (...args) => {
+  const hashed = args.reduce(
+    (acc, val) => acc + '-' + JSON.stringify(val),
+    ''
+  );
+  return hashed;
 }
+const deepCacheSelector = createSelectorCreator(memoize, hashFn)
+
+export const cache__getItemTotal = deepCacheSelector(
+  getOptionsTotal,
+  getSelectedCost,
+  (optionsTotal, selectedCost) => {
+    return optionsTotal + selectedCost
+);
 ```
+Note:
+Turn on hash logger
 
 
-<!-- ```js
-const getMenuItemsByCategory = createSelector(...);
-// Pizza & Salad share same selector, cache is invalid every time
-getMenuItemsByCategory(state, 'pizza');
-getMenuItemsByCategory(state, 'salad');
-getMenuItemsByCategory(state, 'pizza');
-getMenuItemsByCategory.recomputations(); // 3
-// Create a new selector for each component
-const makeGetMenuItemsByCategory = () => createSelector(...);
-const pizzaSelector = makeGetMenuItemsByCategory();
-const saladSelector = makeGetMenuItemsByCategory();
 
-pizzaSelector(state, 'pizza');
-saladSelector(state, 'salad');
-pizzaSelector(state, 'pizza');
-pizzaSelector.recomputations(); // 2
-saladSelector.recomputations(); // 1
-``` -->
+## Thank You
+
+[https://github.com/ademey/pizza-world](https://github.com/ademey/pizza-world)
+

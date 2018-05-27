@@ -9,7 +9,7 @@ const hashFn = (...args) => {
     (acc, val) => acc + '-' + JSON.stringify(val),
     ''
   );
-  // logFunction(`${hashed}: ${args}`);
+  // logFunction(hashed);
   return hashed;
 }
 const deepCacheSelector = createSelectorCreator(memoize, hashFn)
