@@ -1,5 +1,5 @@
 {
-  "name": "demo",
+  "name": "pizza-world",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -10,6 +10,7 @@
     "react-redux": "^5.0.7",
     "react-scripts": "1.1.4",
     "redux": "^4.0.0",
+    "redux-scope-utils": "^1.0.0",
     "redux-thunk": "^2.2.0",
     "reselect": "^3.0.1"
   },

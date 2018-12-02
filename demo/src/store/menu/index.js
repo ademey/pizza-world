@@ -1,3 +1,3 @@
-export { default as reducer } from './reducer';
-export * from './actions';
-export * from './selectors';
+export { default as menuReducer } from "./menuReducer";
+export * from "./menuActions";
+export * from "./menuSelectors";

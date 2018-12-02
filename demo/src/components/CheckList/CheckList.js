@@ -1,6 +1,5 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import { Repeater } from '../Repeater';
+import React from "react";
+import PropTypes from "prop-types";
 
 const CheckList = ({
   options,
@@ -11,27 +10,25 @@ const CheckList = ({
   className
 }) => (
   <ul className={className}>
-    <Repeater list={options}>
-      { (item) => {
-        const id = item[idKey];
-        return (
-          <li key={id}>
-            <input 
-              id={id}
-              type="checkbox"
-              checked={checked[id] || false}
-              onChange={() => onCheck(id)}
-            />
-            <label htmlFor={id}>{ labelRenderer(item) }</label>
-          </li>
-        )}
-      }
-    </Repeater>
+    {options.map(item => {
+      const id = item[idKey];
+      return (
+        <li key={id}>
+          <input
+            id={id}
+            type="checkbox"
+            checked={checked[id] || false}
+            onChange={() => onCheck(id)}
+          />
+          <label htmlFor={id}>{labelRenderer(item)}</label>
+        </li>
+      );
+    })}
   </ul>
 );
 
 CheckList.defaultProps = {
-  labelRenderer: (item) => item.name
+  labelRenderer: item => item.name
 };
 
 CheckList.propTypes = {

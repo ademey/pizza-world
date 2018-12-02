@@ -1,10 +1,9 @@
-import React, { Fragment } from 'react';
-import PropTypes from 'prop-types';
-import CheckListContainer from './CheckListContainer';
-import { logFunction } from 'utils/log';
-import './optionsSidebar.css';
+import React, { Fragment } from "react";
+import PropTypes from "prop-types";
+import CheckListContainer from "./CheckListContainer";
+import "./optionsSidebar.css";
 
-const renderLabel = (item) => (
+const renderLabel = item => (
   <Fragment>
     {item.name}
     <span className="options-item__price">
@@ -17,7 +16,7 @@ const OptionsSidebar = ({ name, price, optionsPrice, total, isOpen }) => {
   if (!isOpen) return null;
   return (
     <div className="options-sidebar">
-      <h3>{ name }</h3>
+      <h3>{name}</h3>
       <CheckListContainer
         className="options-checklist"
         labelKey="name"
@@ -26,15 +25,15 @@ const OptionsSidebar = ({ name, price, optionsPrice, total, isOpen }) => {
       />
       <div className="options-sidebar__subtotal">
         Subtotal:
-        <span className="options-item__price">{ price }</span>
+        <span className="options-item__price">{price}</span>
       </div>
       <div className="options-sidebar__extras">
         Extras:
-        <span className="options-item__price">{ optionsPrice }</span>
+        <span className="options-item__price">{optionsPrice}</span>
       </div>
       <div className="options-sidebar__total">
         Total:
-        <span className="options-item__price">{ total }</span>
+        <span className="options-item__price">{total}</span>
       </div>
     </div>
   );

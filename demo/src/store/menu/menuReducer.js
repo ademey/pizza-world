@@ -1,4 +1,4 @@
-import { FOCUS_ITEM, TOGGLE_OPTION } from './actions';
+import { FOCUS_ITEM, TOGGLE_OPTION } from "./menuActions";
 
 const initialState = {
   focused: null,
@@ -10,7 +10,7 @@ const initialState = {
  * options from the OptionsSidebar. When this applications store is initiated,
  * the state is hydrated with data from `data/app.json`.
  *
- * @param {object} state 
+ * @param {object} state
  * @param {object} action - Redux Action
  * @return {object} state
  */
@@ -21,7 +21,7 @@ const reducer = (state = initialState, action) => {
       return {
         ...state,
         focused: id
-      }
+      };
     }
 
     case TOGGLE_OPTION: {
@@ -32,11 +32,11 @@ const reducer = (state = initialState, action) => {
           ...state.selectedOptions,
           [id]: !state.selectedOptions[id]
         }
-      }
+      };
     }
     default:
       return state;
   }
-}
+};
 
 export default reducer;
