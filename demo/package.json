@@ -3,13 +3,19 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "babel-plugin-dynamic-import-node": "^2.2.0",
+    "babel-plugin-syntax-dynamic-import": "^6.18.0",
+    "babel-plugin-transform-object-rest-spread": "^6.26.0",
+    "babel-preset-env": "^1.7.0",
     "classnames": "^2.2.5",
     "lodash-es": "^4.17.10",
     "react": "^16.3.2",
     "react-dom": "^16.3.2",
     "react-redux": "^5.0.7",
+    "react-router-dom": "^4.3.1",
     "react-scripts": "1.1.4",
     "redux": "^4.0.0",
+    "redux-api-middleware": "^3.0.1",
     "redux-scope-utils": "^1.0.0",
     "redux-thunk": "^2.2.0",
     "reselect": "^3.0.1"
@@ -18,6 +24,12 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "serve": "nodemon -w mock --exec \"NODE_ENV=development babel-node ./mock/serve.js --presets env\""
+  },
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "mockyeah": "^0.18.4",
+    "nodemon": "^1.18.7"
   }
 }

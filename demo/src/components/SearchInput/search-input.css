@@ -1,0 +1,10 @@
+.pw-search-input {
+  display: flex;
+}
+
+.pw-search-input input {
+}
+
+.pw-search-input button {
+  width: 40px;
+}

@@ -1,5 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
+import "./store-header.css";
 
 /**
  * @param {object} props
@@ -8,13 +9,9 @@ import PropTypes from "prop-types";
  * @param {string} props.imageUrl - Path for restaurant image
  */
 const StoreHeader = ({ name, description, imageUrl }) => (
-  <div className="store-header">
-    <div className="store-header__info">
-      <h1>{name}</h1>
-      <h3>{description}</h3>
-    </div>
-    <div className="store-header__logo-container">
-      <img alt="store-logo" src={imageUrl} />
+  <div className="pw-store-header">
+    <div className="pw-store-header__title">
+      <h1>Pizza World</h1>
     </div>
   </div>
 );

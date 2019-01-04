@@ -1,17 +1,12 @@
-import React from 'react';
-import StoreHeaderContainer from './StoreHeaderContainer';
-import { Menu } from 'views/Menu';
-import './store.css';
+import React from "react";
+import { Menu } from "views/Menu";
+import StoreHeader from "./StoreHeader";
 
-/**
- * The Store component is the main view of this demo.
- */
 const Store = () => (
-  <div>
-    <StoreHeaderContainer />
+  <div className="pw-store-view">
+    <StoreHeader />
     <Menu />
   </div>
 );
-
 
 export default Store;

@@ -1,0 +1,13 @@
+.pw-store-header {
+  display: flex;
+  flex-direction: row;
+  padding: 10px 30px;
+  background-color: #ed0a18;
+}
+
+.pw-store-header__title h1 {
+  color: white;
+  font-size: 40px;
+  font-weight: bold;
+  text-transform: uppercase;
+}
