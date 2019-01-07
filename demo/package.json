@@ -25,11 +25,18 @@
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject",
-    "serve": "nodemon -w mock --exec \"NODE_ENV=development babel-node ./mock/serve.js --presets env\""
+    "serve": "nodemon -w mock --exec \"NODE_ENV=development babel-node ./mock/serve.js --presets env\"",
+    "serve:win": "nodemon -w mock --exec \"SET NODE_ENV=development && babel-node ./mock/serve.js --presets env\""
   },
   "devDependencies": {
     "babel-cli": "^6.26.0",
     "mockyeah": "^0.18.4",
     "nodemon": "^1.18.7"
-  }
+  },
+  "browserslist": [
+    ">0.2%",
+    "not dead",
+    "not ie <= 11",
+    "not op_mini all"
+  ]
 }
