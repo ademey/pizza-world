@@ -1,14 +1,14 @@
 .modal {
-  background-color: #253540;
+  background-color: #fff;
   display: flex;
   flex-direction: column;
   max-height: 600px;
-  max-width: 600px;
+  width: 600px;
   position: relative;
 }
 
 .modal-overlay {
-  background-color: rgba(#253540, 0.95);
+  background-color: rgba(0, 0, 0, 0.7);
   bottom: 0;
   left: 0;
   position: fixed;
@@ -36,7 +36,6 @@
 }
 
 .modal__title {
-  font-size: 20px;
   margin: 0;
   padding: 10px;
   padding-right: 60px;
@@ -52,5 +51,9 @@
 
 .modal__footer {
   padding: $modal-window-padding;
-  padding-top: calc-rem(20px);
+  padding: 20px;
+}
+
+.modal__footer button {
+  margin-right: 10px;
 }

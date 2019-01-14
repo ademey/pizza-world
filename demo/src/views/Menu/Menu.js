@@ -1,27 +1,36 @@
-import React from 'react';
-import { OptionsSidebarContainer } from 'views/OptionsSidebar';
-import MenuCategoryContainer from './MenuCategoryContainer';
-import MenuCategoryExpensive from './MenuCategoryExpensive';
-import './menu.css';
+import React, { Component } from "react";
+import PropTypes from "prop-types";
+import MenuItem from "./MenuItem";
+import MenuItemModal from "./MenuItemModal";
+import "./menu.css";
 
-const Menu = () => (
-  <div className="menu">
-    <div className="menu-categories">
-      <MenuCategoryContainer
-        title="Pizza"
-        category="pizza"
-      />
-      {/* <MenuCategoryExpensive
-        title="Salads"
-        category="salad"
-      /> */}
-      <MenuCategoryExpensive
-        title="Salads"
-        category="salad"
-      />
-    </div>
-    <OptionsSidebarContainer />
-  </div>
-);
+class Menu extends Component {
+  componentDidMount() {
+    const { onFetchMenu } = this.props;
+    onFetchMenu();
+  }
+
+  render() {
+    const { items } = this.props;
+    return (
+      <div className="menu">
+        <div className="menu-categories">
+          <div className="menu-category">
+            <div className="menu-items">
+              {items &&
+                items.map(item => <MenuItem key={item.id} data={item} />)}
+            </div>
+          </div>
+        </div>
+        <MenuItemModal />
+      </div>
+    );
+  }
+}
+
+Menu.propTypes = {
+  items: PropTypes.array,
+  onFetchMenu: PropTypes.func.isRequired
+};
 
 export default Menu;

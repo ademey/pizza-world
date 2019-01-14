@@ -1,7 +1,7 @@
 import mockyeah from "mockyeah";
+import { repeat } from "./lib";
+import { makePizza } from "./pizza";
 
 mockyeah.get("/menu", {
-  json: () => ({
-    name: "Pizza World"
-  })
+  json: repeat(makePizza, 20)
 });

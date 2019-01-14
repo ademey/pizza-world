@@ -1,4 +1,4 @@
-import { randomRange, makeNumber } from './util'
+import { randomRange, makeNumber } from "./util";
 
 /**
  * Utilize the Array constructor to make an Array of empty values at a random
@@ -22,7 +22,7 @@ import { randomRange, makeNumber } from './util'
  * randomArray(2) // [undefined, undefined]
  */
 export const randomArray = (min, max) =>
-  Array.from({ length: makeNumber(min, max) })
+  Array.from({ length: makeNumber(min, max) });
 
 /**
  * Function to generate an array of data. The `provider` argument is a function that when called,
@@ -51,7 +51,7 @@ export const randomArray = (min, max) =>
  *
  */
 export const repeat = (provider, min, max) =>
-  randomArray(min, max).map((_, index) => provider(index))
+  randomArray(min, max).map((_, index) => provider(index));
 
 /**
  * Create an array of random data, but ensure that each value in the array is unique.
@@ -79,30 +79,30 @@ export const repeat = (provider, min, max) =>
  * unique(abcProvider, 20) // An array with less than 20 values
  */
 export const unique = (provider, min, max) => {
-  const count = max ? randomRange(min, max) : min
-  if (typeof provider() === 'object') {
-    console.warn('unique doesnt support objects at this time')
-    return repeat(provider, count)
+  const count = max ? randomRange(min, max) : min;
+  if (typeof provider() === "object") {
+    console.warn("unique doesnt support objects at this time");
+    return repeat(provider, count);
   }
-  const uniqueMap = {}
-  let attempts = 0
+  const uniqueMap = {};
+  let attempts = 0;
   for (let i = 0; i < count; i++) {
     // Create the item
-    const val = provider()
+    const val = provider();
     // Check if item exists in the uniqueMap. If it does decrement this
     // loop to create an item again.
-    if (uniqueMap[val]) i--
+    if (uniqueMap[val]) i--;
 
     // Since the loop can decrement if a duplicate is created, keep track of
     // how many times it actually ran so far.
-    attempts++
+    attempts++;
     // Don't let this loop forever. If this has been trying to create unique values and cant
     // after 2x the list length, exit loop and return less items
-    if (attempts > count * 2) break
+    if (attempts > count * 2) break;
 
     // Assign created value as key and value in uniqueMap
-    map[val] = val
+    uniqueMap[val] = val;
   }
   // Create an array out of uniqueMap
-  return Object.values(uniqueMap)
-}
+  return Object.values(uniqueMap);
+};

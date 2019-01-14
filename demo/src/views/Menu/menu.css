@@ -1,47 +1,44 @@
 .menu {
   display: flex;
-}
-
-.menu-categories {
-  padding: 30px;
+  justify-content: center;
 }
 
 .menu-category {
-  margin-bottom: 30px;
-  border: 1px solid #333;
-  border-radius: 10px;
-  padding: 10px;
+  padding: 20px;
+  max-width: 900px;
 }
 
 .menu-items {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(2, 1fr);
   grid-gap: 10px;
   grid-auto-rows: minmax(100px, auto);
 }
 
 .menu-item {
-  border: 1px solid #333;
+  border-radius: 2px;
   padding: 10px;
+  background: white;
 }
 
-
 .menu-item:hover {
-  border: 1px solid red;
+  box-shadow: 0 0 0 4px #000000;
 }
 
 .menu-item--selected {
   border-color: blue;
-  background-color: rgba(0, 0, 255, .1);
+  background-color: rgba(0, 0, 255, 0.1);
 }
 
 .menu-item h4 {
   margin: 0;
   float: left;
+  color: #0070eb;
 }
 
 .menu-item__price {
   float: right;
+  font-weight: bold;
 }
 
 .menu-item__description {
