@@ -3,5 +3,5 @@ import { repeat } from "./lib";
 import { makePizza } from "./pizza";
 
 mockyeah.get("/menu", {
-  json: repeat(makePizza, 20)
+  json: () => repeat(makePizza, 20)
 });

@@ -22,7 +22,7 @@
 }
 
 .menu-item:hover {
-  box-shadow: 0 0 0 4px #000000;
+  box-shadow: 0 0 1px 1px rgba(0, 0, 0, 0.1), 0 0 3px 1px rgba(0, 0, 0, 0.1);
 }
 
 .menu-item--selected {
@@ -44,4 +44,5 @@
 .menu-item__description {
   clear: both;
   padding-top: 10px;
+  color: rgba(0, 0, 0, 0.55);
 }

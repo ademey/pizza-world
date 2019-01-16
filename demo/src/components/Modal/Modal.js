@@ -7,7 +7,6 @@ const Modal = ({
   title,
   children,
   onClose,
-  isOpen,
   confirmMessage,
   cancelMessage,
   onConfirm

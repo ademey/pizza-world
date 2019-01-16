@@ -1,5 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
+import Cart from "./CartContainer";
 import "./store-header.css";
 
 /**
@@ -13,6 +14,7 @@ const StoreHeader = ({ name, description, imageUrl }) => (
     <div className="pw-store-header__title">
       <h1>Pizza World</h1>
     </div>
+    <Cart />
   </div>
 );
 
