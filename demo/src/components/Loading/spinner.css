@@ -1,0 +1,33 @@
+.pw-spinner {
+  width: 30px;
+  height: 30px;
+  background-color: #f63440;
+  border-radius: 25px;
+  position: relative;
+  animation: rotation 2s infinite linear;
+  -webkit-animation: rotation 2s infinite linear;
+}
+
+.pw-spinner::after {
+  content: '';
+  display: block;
+  width: 6px;
+  height: 6px;
+  border-radius: 3px;
+  position: absolute;
+  top: 50%;
+  right: -10px;
+  transform: translateY(-50%);
+  background-color: #f63440;
+
+}
+
+
+@keyframes rotation {
+  from {
+    -webkit-transform: rotate(0deg);
+  }
+  to {
+    -webkit-transform: rotate(359deg);
+  }
+}

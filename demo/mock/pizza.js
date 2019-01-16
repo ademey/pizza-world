@@ -44,7 +44,7 @@ export const makePizza = id => {
     ].join(" ");
   }
   return {
-    id,
+    id: String(id + 1),
     name: name,
     ingredients: toppings,
     price

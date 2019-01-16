@@ -1,7 +1,9 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
+import classnames from 'classnames';
 import MenuItem from "./MenuItem";
 import MenuItemModal from "./MenuItemModalContainer";
+import Cart from './CartContainer';
 import "./menu.css";
 
 class Menu extends Component {
@@ -11,9 +13,11 @@ class Menu extends Component {
   }
 
   render() {
-    const { items, onSelectItem, selectedItem } = this.props;
+    const { items, onSelectItem, selectedItem, cartCount } = this.props;
     return (
-      <div className="menu">
+      <div className={classnames("menu", {
+        'menu--cart-open': cartCount > 0
+      })}>
         <div className="menu-categories">
           <div className="menu-category">
             <div className="menu-items">
@@ -30,6 +34,7 @@ class Menu extends Component {
           </div>
         </div>
         {!!selectedItem && <MenuItemModal />}
+        {cartCount > 0 && <Cart />}
       </div>
     );
   }

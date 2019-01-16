@@ -1,3 +1,4 @@
 import round from 'lodash/round';
 
-export const unitsToDollar = units => `$${round(units / 100, 2)}`;
+export const formatPrice = units => `$${round(units / 100, 2)}`;
+

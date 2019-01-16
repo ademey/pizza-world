@@ -8,7 +8,7 @@ const MenuItemModal = ({ isOpen, menuItem, onCancel, onAddToCart }) => (
     onClose={onCancel}
     cancelMessage="Cancel"
     onConfirm={() => onAddToCart(menuItem.id)}
-    confirmMessage="Add to Cart"
+    confirmMessage={`Add to Cart $${menuItem.price && Number(menuItem.price / 100).toFixed(2)}`}
   >
     <p>${menuItem.price && Number(menuItem.price / 100).toFixed(2)}</p>
     {menuItem.ingredients && menuItem.ingredients.join(", ")}

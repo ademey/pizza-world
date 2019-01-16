@@ -30,3 +30,8 @@ button {
   background-color: #ed0a18;
   border: 1px solid #ed0a18;
 }
+
+button[disabled] {
+  background-color: #ccc;
+  border-color: #ccc;
+}

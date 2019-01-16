@@ -5,13 +5,23 @@ import {
   FAILURE,
   scopeTypeDescriptors
 } from "store/modules/loading";
-import { MENU_DATA_SCOPE } from "./scopes";
+import { MENU_DATA_SCOPE, CHECKOUT_SCOPE } from "./scopes";
 
 export const fetchMenu = () => ({
   [RSAA]: {
     endpoint: "http://127.0.0.1:4001/menu",
     method: "GET",
     types: scopeTypeDescriptors([REQUEST, SUCCESS, FAILURE], MENU_DATA_SCOPE),
+    headers: { "Content-Type": "application/json" }
+  }
+});
+
+export const submitOrder = cart => ({
+  [RSAA]: {
+    endpoint: "http://127.0.0.1:4001/order",
+    method: "POST",
+    body: JSON.stringify(cart),
+    types: scopeTypeDescriptors([REQUEST, SUCCESS, FAILURE], CHECKOUT_SCOPE),
     headers: { "Content-Type": "application/json" }
   }
 });
