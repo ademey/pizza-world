@@ -17,15 +17,17 @@ const orderReducer = (state = intialState, action) => {
         ...state,
         selectedId: null
       };
-    case ADD_TO_CART:
+    case ADD_TO_CART: {
+      const { payload: id } = action;
       return {
         ...state,
         selectedId: null,
         cartItems: {
           ...state.cartItems,
-          [action.payload]: 1
+          [id]: state.cartItems[id] ? state.cartItems[id] + 1 : 1
         }
       };
+    }
     default:
       return state;
   }

@@ -34,7 +34,7 @@ export const getCartSummary = createSelector(
   getFormattedCartItems,
   items => {
     const summary = {
-      subtotal: items.reduce((acc, curr) => acc + curr.price, 0),
+      subtotal: items.reduce((acc, curr) => acc + (curr.price * curr.count) , 0),
       delivery: 300,
       tax: 0,
       total: 0 
