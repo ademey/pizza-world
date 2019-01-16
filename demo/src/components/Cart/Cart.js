@@ -1,6 +1,6 @@
 import React from "react";
 import { formatPrice } from 'utils/format';
-import { Spinner } from 'components/Loading';
+import { Logo } from 'components/Logo';
 import "./cart.css";
 
 const Cart = ({ cartItems, summary, submitting, success, onSubmit, deliveryTime }) => (
@@ -65,7 +65,7 @@ const Cart = ({ cartItems, summary, submitting, success, onSubmit, deliveryTime 
        { submitting &&
           <div className="pw-cart__order-loading">
             <h3>Placing Order</h3>
-            <Spinner />
+            <Logo />
           </div> 
        }
       { success &&

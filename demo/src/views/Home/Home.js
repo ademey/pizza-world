@@ -1,5 +1,6 @@
 import React from "react";
 import { SearchInput } from "components";
+import { Logo } from 'components/Logo';
 import "./home.css";
 
 const Home = ({ history }) => (
@@ -8,7 +9,8 @@ const Home = ({ history }) => (
       <h1 className="pw-home-view__title">Pizza World</h1>
     </div>
     <div className="pw-home-view__right">
-      <div className="pw-home-view__logo" />
+      <Logo className="pw-home-view__logo" />
+
 
       <div className="pw-home-view__nav">
         <button
